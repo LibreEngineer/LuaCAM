@@ -14,7 +14,7 @@ Provides GUI and minimal geometry kernel in C.
 - First class support for [LinuxCNC](https://linuxcnc.org/docs/html/gcode/)
 - Provides ensureUnit(val, unit) method for inputing units
 - Custom G-Code comment formatting
-- Extensive suite of testing software; Never break a machine again
+- Static analysis tools for G-Code using Machinespec file
 - Machinespec file allows you to fully utilize your machines
 
 
@@ -32,5 +32,6 @@ Here's a quick overview of the provided GUI.
 - "*.machinespec" = defines a machine's capabilities as well as its gcode
 - "*.toolpath" = an IR (Intermediate Representation) format for gcode
   - designed to replace gcode for linuxCNC machines, for easy "shop-floor" programming
-  - provides standard api & environment that is homogeneous across machines
+  - provides standard api & environment that is homogeneous across machines,
+    - to eliminate uncertainty
 
