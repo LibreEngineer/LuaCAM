@@ -1,5 +1,5 @@
 package = "luaCAM"
-version = "dev"
+version = "dev"-- for the current git commit
 source = {
    url = "git+https://github.com/LibreEngineer/LuaCAM"
 }
@@ -7,7 +7,7 @@ description = {
    summary = "",
    detailed = [[]],
    homepage = "https://github.com/LibreEngineer/LuaCAM",
-   license = "*** please specify a license ***"
+   license = "*** WTFPL ***"
 }
 dependencies = {
   "lua >= 5.1"
