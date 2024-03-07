@@ -1,6 +1,6 @@
 
 # LuaCAM
-Use Lua to generate G-Codes.
+Use Lua as an IR language to generate G-Codes.
 Provides GUI and minimal geometry kernel in C.
 
 ## TODO
@@ -15,12 +15,13 @@ Provides GUI and minimal geometry kernel in C.
 - Provides ensureUnit(val, unit) method for safely inputing units
 - Inline comment formatting
 - Static analysis tools for G-Code using Machinespec files
-- Machinespec file allows you to fully utilize and maintain the safety of your machines
+- Machinespec files allows you to fully utilize and maintain the safety of your machines
 
 
 ## Design and Philosophy
 LuaCAM is designed to replace traditional CAM systems and workflows for a (potentially) more efficient design.
-
+It treats CNC programs like software development.
+Tools are categorized by the machining strategy they support. Tools can only support one machining strategy.
 
 
 ## GUI
@@ -32,11 +33,8 @@ Here's a quick overview of the provided GUI.
 - Toolpath workspace directly tests and validates the output GCodes for a machine
 - Machine simulation accurately simulates feedrate of machine
 
-
-
 ## File Formats
-- "*.machinespec" = defines a machine's capabilities as well as its gcode
-- "*.toolpath" = an IR (Intermediate Representation) format for gcode
-  - designed to replace gcode in linuxCNC machines, for easy "shop-floor" programming
-  - provides standard api & environment that is homogeneous across machines, to eliminate uncertainty
+- "*.toolpath" = provides special lua environment specifically for creating toolpaths, like [tpl](https://tplang.org/) for js
+- "*.machinespec" = lua file to define a machine's capabilities and gcode
+- "*.tools" = a csv file containing tool definitions
 

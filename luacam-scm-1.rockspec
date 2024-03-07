@@ -1,5 +1,5 @@
 package = "luaCAM"
-version = "dev"-- for the current git commit
+version = "scm-1"-- for the current git commit
 source = {
    url = "git+https://github.com/LibreEngineer/LuaCAM"
 }
