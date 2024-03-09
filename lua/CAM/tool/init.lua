@@ -1,13 +1,21 @@
--- metatable for M
-local mt_M={
-  -- can only set capability once & only through this method (function)
-  -- type can only be set/updated through methods
-  __call = function(tbl, capability, type)
+
+local mt_M = {
+  __call = function()
   end
 }
-
--- the generic tool definition table
 local M={
+  capability="",
+  type="",
+  unit="",-- if left blank, will use CAM_DEFAULT_UNITS table
+  desc = {
+    title="",-- ex: "6-32UNC Threadmill"
+    url="",
+    vendor="",
+    uuid=0,
+    notes="",-- any extra information
+  },
+  geometry={},
+  tp_params={},
 }
 setmetatable(M, mt_M)
 

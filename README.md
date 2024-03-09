@@ -34,7 +34,8 @@ Here's a quick overview of the provided GUI.
 - Machine simulation accurately simulates feedrate of machine
 
 ## File Formats
-- "*.toolpath" = provides special lua environment specifically for creating toolpaths, like [tpl](https://tplang.org/) for js
+- "*.path" = lua file with special environment to represent LuaCAM's geometry.path object
+- "*.toolpath" = extends the path file to specifically represent toolpaths, see: [tpl](https://tplang.org/)
 - "*.machinespec" = lua file to define a machine's capabilities and gcode
 - "*.tools" = a csv file containing tool definitions
 
