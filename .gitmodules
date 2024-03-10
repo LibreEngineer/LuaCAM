@@ -1,0 +1,4 @@
+
+[submodule "gl3w"]
+    path = lib/gl3w
+    url = https://github.com/skaslev/gl3w

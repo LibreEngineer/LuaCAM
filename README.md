@@ -4,8 +4,8 @@ Use Lua as an IR language to generate G-Codes.
 Provides GUI and minimal geometry kernel in C.
 
 ## TODO
-1. [ ] create geometry kernel in C API
-2. [ ] create C API for Lua
+1. [ ] create C API for Lua
+2. [ ] create geometry kernel in C API
 3. [ ] flesh out luaCAM
 4. [ ] create GUI
 
@@ -35,7 +35,7 @@ Here's a quick overview of the provided GUI.
 
 ## File Formats
 - "*.path" = lua file with special environment to represent LuaCAM's geometry.path object
-- "*.toolpath" = extends the path file to specifically represent toolpaths, see: [tpl](https://tplang.org/)
+- "*.toolpath" = extends the path file to specifically represent toolpaths, similar to [tpl](https://tplang.org/)
 - "*.machinespec" = lua file to define a machine's capabilities and gcode
 - "*.tools" = a csv file containing tool definitions
 
