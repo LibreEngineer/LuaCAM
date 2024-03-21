@@ -16,15 +16,7 @@ CAM_DEFAULT_UNITS = {
 -- Units: {{{
 -- all inputs that require a unit to be known will either use this system,
 -- or check for a unit field/key in the root of the parent object (i.e. cam.tool)
-local mt_unit = {
-  __call = function(tbl, value, unit)
-    if tbl[unit] == nil then
-      M.log:err("You didn't enter an acceptable unit tag.")
-      return
-    end
-    return {value, unit}
-  end
-}
+
 -- unit tags
 M.unit = {
   -- length = 1
@@ -67,7 +59,15 @@ M.unit = {
   end
   --}}}
 }
-setmetatable(M.unit, mt_unit)
+setmetatable(M.unit, {
+  __call = function(tbl, value, unit)
+    if tbl[unit] == nil then
+      M.log:err("You didn't enter an acceptable unit tag.")
+      return
+    end
+    return {value, unit}
+  end
+})
 --}}}
 
 -- Logging: {{{
@@ -78,17 +78,16 @@ M.log_idx = {
   ['ERROR'] = {},
 }
 
-local mt_log = {
+-- sequential array of all logs
+M.log = {
+}
+setmetatable(M.log, {
   -- just like printing to stdout
   __call = function(tbl, str)
     table.insert(tbl, str)
     table.insert(M.log_idx['STD'], #M.log)
   end
-}
--- sequential array of all logs
-M.log = {
-}
-setmetatable(M.log, mt_log)
+})
 
 -- log error
 function M.log:err(str)

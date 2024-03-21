@@ -1,2 +1,4 @@
 gcc
--Isrc
+-Isrc/
+-Ilib/include/
+-Llib/

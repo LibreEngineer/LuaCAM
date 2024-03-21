@@ -13,28 +13,26 @@ M.surface = {
 --}}}
 
 -- Path: {{{
-local mt_path = {
+M.path = {
+}
+setmetatable(M.path, {
   __call = function()
     print("this function returns a path object")
   end
-}
-M.path = {
-}
-setmetatable(M.path, mt_path)
+})
 -- ensures the path is 2d
 function M.path:flatten()
 end
 --}}}
 
 -- Brep: {{{
-local mt_brep = {
+M.brep = {
+}
+setmetatable(M.brep, {
   -- initializes a brep object
   __call = function()
   end
-}
-M.brep = {
-}
-setmetatable(M.brep, mt_brep)
+})
 --}}}
 
 -- File Imports: {{{

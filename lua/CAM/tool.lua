@@ -1,8 +1,4 @@
 
-local mt_M = {
-  __call = function()
-  end
-}
 local M={
   capability="",
   type="",
@@ -17,6 +13,9 @@ local M={
   geometry={},
   tp_params={},
 }
-setmetatable(M, mt_M)
+setmetatable(M, {
+  __call = function()
+  end
+})
 
 return M
