@@ -1,34 +1,22 @@
-// libc
-#include <stdlib.h>
+// libc headers
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 // GL crap
 #include <GL/gl3w.h>
-#include <GLFW/glfw3.h>
 #include <GL/gl.h>
+#include <GLFW/glfw3.h>
 #include <cglm/cglm.h>
 // STB
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 // Custom
 #include "util.h"
-//#include "input.h"
+#include "input.h"
 
-
-// GLFW Callbacks: {{{
-static void error_callback(int error, const char* description) {
-    fprintf(stderr, "Error: %s\n", description);
-}
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, GLFW_TRUE);
-}
-// update viewport size when window is resized
-static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
-    glViewport(0, 0, width, height);
-}
-// }}}
+void error_callback(int error, const char* description);
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 // the entry point for the gui program
 int main() {
@@ -46,7 +34,7 @@ int main() {
         glfwTerminate();
         return -1;
     }
-    glfwSetKeyCallback(window, key_callback);
+    glfwSetKeyCallback(window, key_callback);// key_callback() is implemented in input.c
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwMakeContextCurrent(window);
 
@@ -137,24 +125,27 @@ int main() {
 
     // Program loop
     glfwSwapInterval(1);
-    glfwSetInputMote(window, GLFW_Cursor, GLFW_CURSOR_DISABLED);
+    //glfwSetInputMote(window, GLFW_Cursor, GLFW_CURSOR_DISABLED);
+
     glEnable(GL_DEPTH_TEST);
     double dt = 0.0;
     double lastFrame = 0.0;
     do{
-        // Update Data
+        // Update
+        dt = glfwGetTime() - lastFrame;
+        lastFrame += dt;
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // ensure these are bound
         glUseProgram(shaderProgram);
         glBindTexture(GL_TEXTURE_2D, texture0);
         glBindVertexArray(VAO);
 
-        // Draw Calls
+        // Draw
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-        // Swap Buffers & Process Events
+        // Render (Swap Buffers & Process Events)
         glfwSwapBuffers(window);
         glfwPollEvents();
     }while (!glfwWindowShouldClose(window));
@@ -162,3 +153,16 @@ int main() {
     glfwTerminate();
     return 0;
 }
+
+
+// GLFW Callbacks: {{{
+// Update viewport size when window is resized
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
+
+// GLFW will call this when an error is met
+void error_callback(int error, const char* description) {
+    fprintf(stderr, "Error: %s\n", description);
+}
+// }}}
