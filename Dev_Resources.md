@@ -14,3 +14,4 @@ Here's some links for documentation on Computational Geometry and BREP modeling.
 - [reddit - Free and Open source CAM/CNC software](https://www.reddit.com/r/CNC/comments/aizatc/free_and_open_source_camcnc_software/)
 - [List of CAM/3d scripting languages](https://github.com/openscad/openscad/issues/2299)
 - [OpenSBP](http://www.opensbp.com/#license)
+- [IFC](https://en.wikipedia.org/wiki/Industry_Foundation_Classes)

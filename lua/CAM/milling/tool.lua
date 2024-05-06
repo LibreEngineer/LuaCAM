@@ -5,7 +5,7 @@ M.tool = {
   capability="milling",
   type="",-- the tool methods will set this
   -- see: '../init.lua'
-  unit="",-- if left blank, will use CAM_DEFAULT_UNITS table
+  unit_sys="",-- if left blank, will use CAM_DEFAULT_UNITS table
   desc = {
     title="",-- ex: "6-32UNC Threadmill"
     url="",
@@ -60,6 +60,9 @@ M.tool_types = {
   "centerdrill",
   "tap",
 }
+--{{{ Methods:
+
+--}}}
 
 function M.endmill()--{{{
 end--}}}

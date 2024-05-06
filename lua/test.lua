@@ -10,7 +10,7 @@ cam.geometry.surface()
 cam.geometry.path()
 cam.geometry.path2d()
 
-print(unit(1, "in"))
+print(unit(1, 'in'))
 
 cam.log("goodbye")
 cam.dump_log()

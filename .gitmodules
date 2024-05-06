@@ -1,5 +1,5 @@
 
-[submodule "gl3w"]
+[submodule "lib/gl3w"]
     path = lib/gl3w
     url = https://github.com/skaslev/gl3w
     ignore = dirty
@@ -7,11 +7,11 @@
 	path = lib/cglm
 	url = https://github.com/recp/cglm
     ignore = dirty
-[submodule "lib/glfw"]
-	path = lib/glfw
-	url = https://github.com/glfw/glfw
-    ignore = dirty
 [submodule "lib/cimgui"]
 	path = lib/cimgui
 	url = https://github.com/cimgui/cimgui
+    ignore = dirty
+[submodule "lib/SDL"]
+	path = lib/SDL
+	url = https://github.com/libsdl-org/SDL
     ignore = dirty
