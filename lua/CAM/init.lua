@@ -20,35 +20,35 @@ CAM_DEFAULT_UNITS = {
 -- unit tags
 M.unit = {
   -- length = 1
-  ["in"]=1,
-  ["ft"]=1,
-  ["m"]=1,
-  ["cm"]=1,
-  ["mm"]=1,
+  ['in']=1,
+  ['ft']=1,
+  ['m']=1,
+  ['cm']=1,
+  ['mm']=1,
   -- angle = 2
-  ["deg"]=2,
-  ["rad"]=2,
+  ['deg']=2,
+  ['rad']=2,
   -- rotational speed = 3
-  ["rpm"]=3,
+  ['rpm']=3,
   -- surface speed = 4
-  ["sfm"]=3,
+  ['sfm']=3,
   -- feedrate = 4
-  ["ipm"]=4,
-  ["ipr"]=4,
-  ["mmpr"]=4,
+  ['ipm']=4,
+  ['ipr']=4,
+  ['mmpr']=4,
   -- torque = 5
   -- surface area = 7
-  ["sq_in"]=5,
-  ["sq_ft"]=5,
-  ["sq_m"]=5,
-  ["sq_cm"]=5,
-  ["sq_mm"]=5,
+  ['sq_in']=5,
+  ['sq_ft']=5,
+  ['sq_m']=5,
+  ['sq_cm']=5,
+  ['sq_mm']=5,
   -- volume = 6
-  ["cu_in"]=4,
-  ["cu_ft"]=4,
-  ["cu_m"]=4,
-  ["cu_cm"]=4,
-  ["cu_mm"]=4,
+  ['cu_in']=4,
+  ['cu_ft']=4,
+  ['cu_m']=4,
+  ['cu_cm']=4,
+  ['cu_mm']=4,
 
   -- Methods: {{{
   -- converts Degree Minute Second to "deg"
@@ -60,8 +60,8 @@ M.unit = {
   --}}}
 }
 setmetatable(M.unit, {
-  __call = function(tbl, value, unit)
-    if tbl[unit] == nil then
+  __call = function(value, unit)
+    if self[unit] == nil then
       M.log:err("You didn't enter an acceptable unit tag.")
       return
     end

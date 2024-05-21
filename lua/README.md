@@ -22,14 +22,22 @@ func{
   "hello world"
 }
 ```
-- generic variables:
+- Generic Variables:
   - 'i' = index
   - 'k' = key
   - 'v' = value
-  - 'tbl' = table
-- special variables:
-  - 'M' = module table to return
+  - 'tbl' = the local table being worked on
+  - 'str' = the local string being worked on
+  - 'num' = the local number being worked on
+  - 'func' = the local function being worked on
+  - 'params' = table of function arguments
+- Reserved Variables:
+  - 'M' = local module table to return
   - 'proto' = local table of the module's prototypes
+  - 'arg' = access multiple function argument (...)
+- Naming:
+  - 'b_' prefix for all booleans; more explict and shorter than 'is_'
+
 
 
 ## Workflow

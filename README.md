@@ -42,10 +42,11 @@ Here's a quick overview of the provided GUI editor.
 
 
 ## File Formats
+- "*.lon" = lua object notation, a lua module that must return a single table
 - "*.3dpath" = lua file with special environment to represent LuaCAM's geometry.path object
 - "*.toolpath" = extends the 3dpath file format to specifically represent toolpaths, similar to [tpl](https://tplang.org/)
-- "*.machdef" = lua, xml, or json file to define a machine's kinematics
-- "*.ctrldef" = lua, xml, or json file to define a machine's controller
-- "*.tools" = a tool library saved in a plain text format (csv | lua | json | xml)
+- "*.machdef" = file format to define a machine's kinematics
+- "*.ctrldef" = file format to define a machine's controller
+- "*.tools.<fmt>" = a tool library saved in a plain text format; fmt = ("lua"|"lon"|"txt"|"csv"|"xml")
 - "*.tooldb" = a tool library saved in a binary database file, preferably SQLite
 
